@@ -1,5 +1,4 @@
-import { products } from "@/data/products";
-import React from "react";
+import ProductItem from "@/components/ProductItem";
 import { Image, StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
@@ -15,17 +14,19 @@ export default function Index() {
       />
 
       <View style={styles.productContainer}>
-        {products.map((product, index) => (
-          <View key={index} style={styles.productCard}>
-            <Image
-              source={{ uri: product.image }}
-              style={styles.productImage}
-            />
-            <Text>{product.name}</Text>
-            <Text>Price: kd{product.price.toFixed(3)}</Text>
-          </View>
-        ))}
+        <ProductItem />
       </View>
+
+      {/* <View style={styles.productContainer}>
+      {products.map((product,index) => ( 
+        <View key= {index} style={styles.productCard}>
+        <Image source={{ uri: product.image }} style={styles.productImage} />
+        <Text>{product.name}</Text>
+        <Text>Price: kd{product.price.toFixed(3)}</Text>
+        
+        </View>
+      ))}
+      </View> */}
     </View>
   );
 }
