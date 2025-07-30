@@ -1,29 +1,28 @@
-import ProductItem from "@/components/ProductItem";
-import { products } from "@/data/products";
-import { Image, StyleSheet, Text, View } from "react-native";
+import Header from "@/components/Header.js";
+import ProductList from "@/components/ProductList.js";
+import { StyleSheet, View } from "react-native";
+// import { ProductItem } from "@/components/ProductItem";
 
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text style={{ fontWeight: "bold" }}>Cookies & Beyound</Text>
-      <Text>Where cookies maniacs gather</Text>
-      <Image
-        source={{
-          uri: "https://i.pinimg.com/originals/35/70/e3/3570e369cccb288774f2ea1adc6f5b55.jpg",
-        }}
-        style={{ width: 200, height: 200 }}
-      />
+      <Header />
+      <ProductList />
+      {/* <Text style={{fontWeight:'bold'}}>Cookies & Beyound</Text>
+      <Text >Where cookies maniacs gather</Text>
+      < Image source= {{uri:"https://i.pinimg.com/originals/35/70/e3/3570e369cccb288774f2ea1adc6f5b55.jpg"} } 
+      style={{ width:200, height:200}}/> */}
 
+      {/*       
       <View style={styles.productContainer}>
         {products.map((product) => (
           <ProductItem
-            key={product.key}
-            name={product.name}
-            price={product.price}
-            image={product.image}
-          />
+          key={product.key}
+          name={product.name}
+          price={product.price}
+          image={product.image} />
         ))}
-      </View>
+      </View>  */}
 
       {/* <View style={styles.productContainer}>
       {products.map((product,index) => ( 
@@ -50,6 +49,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     marginTop: 20,
+    paddingTop: 50,
   },
   productCard: {
     alignItems: "center",

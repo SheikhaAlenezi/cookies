@@ -10,7 +10,7 @@ const ProductItem = ({ name, price, image }: ProductProps) => {
     <View style={styles.productCard}>
       <Image source={{ uri: image }} style={styles.productImage} />
       <Text>{name}</Text>
-      <Text> Price: kd{price.toFixed(3)}</Text>
+      <Text>Price: kd {Number(price).toFixed(3)} </Text>
     </View>
   );
 };
