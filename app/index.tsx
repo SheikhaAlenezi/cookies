@@ -1,43 +1,55 @@
+import { products } from "@/data/products";
 import React from "react";
-import { Image, Text, View } from "react-native";
-
-//import { products } from './products';
-
-interface indexProps {
-  name: string;
-  price: number;
-}
-// const index = ({ name, price}: indexProps) => {
-//   return {
-//     <View style={styles.container}>
-//     <Text> coookie,(name) price=(price )</Text>
-//     </View>
-//   }
-// }
-
-// export default indexProps:
+import { Image, StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text style={{ fontSize: 40 }}> Cookies & Beyond</Text>
-      <Text style={{ fontSize: 20 }}>Where cookies maiacs gather</Text>
-
+    <View style={styles.container}>
+      <Text style={{ fontWeight: "bold" }}>Cookies & Beyound</Text>
+      <Text>Where cookies maniacs gather</Text>
       <Image
-        style={{ width: 300, height: 300 }}
         source={{
-          uri: "https://img.freepik.com/premium-vector/bakery-shop-building-facade-with-signboard-baking-store-cafe-bread-pastry-dessert-shop-showcases-with-various-bread-cakes-products_169241-3309.jpg?w=2000",
+          uri: "https://i.pinimg.com/originals/35/70/e3/3570e369cccb288774f2ea1adc6f5b55.jpg",
         }}
+        style={{ width: 200, height: 200 }}
       />
-      {/* <view>
-        {products.map((product,index)=>)
-        <View key ={index}> 
-        <Image 
-        style={{width:100,height:100}}
-      source={{uri: products.image}} />
-      <Text>{products.name}</Text>
-      <Text> ${products.price.toFixed(2) </Text> </view>
-      }} </View> */}
+
+      <View style={styles.productContainer}>
+        {products.map((product, index) => (
+          <View key={index} style={styles.productCard}>
+            <Image
+              source={{ uri: product.image }}
+              style={styles.productImage}
+            />
+            <Text>{product.name}</Text>
+            <Text>Price: kd{product.price.toFixed(3)}</Text>
+          </View>
+        ))}
+      </View>
     </View>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    fontSize: 50,
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  productContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginTop: 20,
+  },
+  productCard: {
+    alignItems: "center",
+    padding: 10,
+    borderRadius: 10,
+  },
+  productImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 8,
+    marginBottom: 5,
+  },
+});
