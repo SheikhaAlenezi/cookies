@@ -1,17 +1,34 @@
-import { products } from "@/data/products";
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-
-const ProductItem = () => {
-  const product = products[0];
+interface ProductProps {
+  name: string;
+  price: number;
+  image: string;
+}
+const ProductItem = ({ name, price, image }: ProductProps) => {
   return (
     <View style={styles.productCard}>
-      <Image source={{ uri: product.image }} style={styles.productImage} />
-      <Text>{product.name}</Text>
-      <Text>Price: kd{product.price.toFixed(3)}</Text>
+      <Image source={{ uri: image }} style={styles.productImage} />
+      <Text>{name}</Text>
+      <Text> Price: kd{price.toFixed(3)}</Text>
     </View>
   );
 };
+
+// task2:
+// const ProductItem = () => {
+//     const product = products[0];
+//   return (
+
+//         <View style={styles.productCard}>
+//         <Image source={{ uri: product.image }} style={styles.productImage} />
+//         <Text>{product.name}</Text>
+//         <Text>Price: kd{product.price.toFixed(3)}</Text>
+
+//         </View>
+
+//   )
+// }
 
 export default ProductItem;
 

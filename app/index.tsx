@@ -1,4 +1,5 @@
 import ProductItem from "@/components/ProductItem";
+import { products } from "@/data/products";
 import { Image, StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
@@ -14,7 +15,14 @@ export default function Index() {
       />
 
       <View style={styles.productContainer}>
-        <ProductItem />
+        {products.map((product) => (
+          <ProductItem
+            key={product.key}
+            name={product.name}
+            price={product.price}
+            image={product.image}
+          />
+        ))}
       </View>
 
       {/* <View style={styles.productContainer}>
@@ -36,6 +44,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    paddingTop: 50,
   },
   productContainer: {
     flexDirection: "row",
